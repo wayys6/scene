@@ -1,0 +1,146 @@
+/* 基础样式重置：统一浏览器默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全局样式：字体、背景、行高 */
+body {
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+}
+
+/* 容器类：限制宽度+居中，适配不同屏幕 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 头部样式：渐变背景+Flex布局 */
+.site-header {
+    background: linear-gradient(135deg, #2c5364 0%, #203a43 100%);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* 移动端自动换行 */
+}
+
+.site-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* 导航样式：Flex布局+Hover交互 */
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease; /* 过渡动画 */
+    padding-bottom: 5px;
+}
+
+.nav-bar a:hover {
+    color: #a8d0e6;
+    border-bottom: 2px solid #a8d0e6;
+}
+
+/* 主体内容间距 */
+.main-content {
+    padding: 40px 0;
+}
+
+/* 板块标题样式 */
+.scenic-section h2 {
+    font-size: 1.8rem;
+    color: #2c5364;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    border-left: 4px solid #3498db;
+}
+
+/* Grid布局：响应式多列展示 */
+.scenic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* 风景卡片样式：圆角+阴影+Hover效果 */
+.scenic-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scenic-card:hover {
+    transform: translateY(-8px); /* 悬浮上移 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* 加深阴影 */
+}
+
+/* 图片样式：等比裁剪 */
+.scenic-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* 保持比例，裁剪多余部分 */
+}
+
+/* 卡片文字样式 */
+.scenic-card h3 {
+    font-size: 1.3rem;
+    padding: 15px 20px 5px;
+    color: #2c5364;
+}
+
+.scenic-card p {
+    padding: 0 20px 20px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* 底部样式 */
+.site-footer {
+    background-color: #203a43;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+/* 响应式适配：移动端优化 */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-bar ul {
+        margin-top: 15px;
+        gap: 20px;
+    }
+
+    .scenic-grid {
+        grid-template-columns: 1fr; /* 移动端单列展示 */
+    }
+
+    .scenic-card {
+        max-width: 100%;
+    }
+}
